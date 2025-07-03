@@ -174,7 +174,7 @@ export default function organisasi() {
             ))}
             {organisasis.length === 0 && (
               <tr>
-              <td colSpan="9">Data Tidak Tersedia</td>
+              <td colSpan="7">Data Tidak Tersedia</td>
               </tr>
             )}
           </tbody>

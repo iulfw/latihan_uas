@@ -150,12 +150,18 @@ export default function kegiatan() {
           </div>
           <div className={styles.formGroup}>
             <span>Jenis Kegiatan</span>
-            <input
-            type="text"
-            value={jenis_kegiatan}
-            onChange={(e) => setJenisKegiatan(e.target.value)}
-            required
-            />
+            <select
+              value={jenis_kegiatan}
+              onChange={(e) => setJenisKegiatan(e.target.value)}
+              required
+            >
+              <option value="">Pilih Jenis</option>
+              <option value="Seminar">Seminar</option>
+              <option value="Bonding">Bonding</option>
+              <option value="Bakti Sosial">Bakti Sosial</option>
+              <option value="Lomba">Lomba</option>
+              <option value="Lainnya">Lainnya</option>
+            </select>
           </div>
           <div className={styles.formGroup}>
             <span>Deskripsi Singkat</span>
