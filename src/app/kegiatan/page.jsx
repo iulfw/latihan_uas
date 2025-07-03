@@ -69,7 +69,7 @@ export default function kegiatan() {
   const handleEdit = (item) => {
       setJudulKegiatan(item.judul_kegiatan);
       setIdOrganisasi(item.id_organisasi);
-      setTanggalKegiatan(item.tanggal_kegiatan);
+      setTanggalKegiatan(item.tanggal_kegiatan ? new Date(item.tanggal_kegiatan).toISOString().split('T')[0] : '');
       setLokasi(item.lokasi);
       setJenisKegiatan(item.jenis_kegiatan);
       setDeskripsiSingkat(item.deskripsi_singkat);
