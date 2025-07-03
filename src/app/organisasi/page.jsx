@@ -151,12 +151,11 @@ export default function organisasi() {
           <thead>
             <tr>
               <th>No</th>
-              <th>Nama Organisasi</th>
+              <th>Organisasi</th>
               <th>Ketua</th>
-              <th>No. Kontak</th>
-              <th>Tahun Dibentuk</th>
+              <th>Kontak</th>
+              <th>Tahun</th>
               <th>Pembina</th>
-              <th>Aksi</th>
             </tr>
           </thead>
           <tbody>
