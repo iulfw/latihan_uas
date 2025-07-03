@@ -4,7 +4,6 @@ import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 
 export default function organisasi() {
-  
   const [ formVisible, setFormVisible ] = useState(false);
   const [ organisasis, setorganisasis ] = useState([]);
   const [ nama_organisasi, setNamaOrganisasi ] = useState('');
@@ -41,19 +40,19 @@ export default function organisasi() {
     });
 
     if (res.ok) {
-        setMsg('Saved Successfully!');
-        setNamaOrganisasi('');
-        setKetuaOrganisasi('');
-        setNoKontak('');
-        setTahunDibentuk('');
-        setPembina('');
-        setEditId(null);
-        setFormVisible(false);
-        fetchorganisasis();
+      setMsg('Saved Successfully!');
+      setNamaOrganisasi('');
+      setKetuaOrganisasi('');
+      setNoKontak('');
+      setTahunDibentuk('');
+      setPembina('');
+      setEditId(null);
+      setFormVisible(false);
+      fetchorganisasis();
     } else {
         setMsg('Failed to Save Data!');
     }
-    };
+  };
 
   const handleEdit = (item) => {
     setNamaOrganisasi(item.nama_organisasi);
@@ -84,9 +83,9 @@ export default function organisasi() {
       <h1 className={styles.title}>Portal Ormawa ITBSS</h1>
       <h2 className={styles.subtitle}>Daftar Organisasi</h2>
       <button
-           className={styles.buttonToggle}
-           onClick={() => setFormVisible(!formVisible)}>
-           {formVisible ? 'Tutup Form' : 'Tambah Data'}
+        className={styles.buttonToggle}
+        onClick={() => setFormVisible(!formVisible)}>
+        {formVisible ? 'Tutup Form' : 'Tambah Data'}
       </button>
 
       {formVisible && (
@@ -94,57 +93,57 @@ export default function organisasi() {
           <h3>Tambah Organisasi</h3>
           <form onSubmit={handleSubmit}>
           <div className={styles.formGroup}>
-              <span>Nama Organisasi</span>
-              <input
-                type="text"
-                value={nama_organisasi}
-                onChange={(e) => setNamaOrganisasi(e.target.value)}
-                required
-              />
-            </div>
-            <div className={styles.formGroup}>
-              <span>Ketua Organisasi</span>
-              <input
-                type="text"
-                value={ketua_organisasi}
-                onChange={(e) => setKetuaOrganisasi(e.target.value)}
-                required
-              />
-            </div>
-            <div className={styles.formGroup}>
-              <span>Nomor Kontak</span>
-              <input
-                type="text"
-                value={no_kontak}
-                onChange={(e) => setNoKontak(e.target.value)}
-                required
-              />
-            </div>
-            <div className={styles.formGroup}>
-              <span>Tahun Dibentuk</span>
-              <input
-                type="number"
-                value={tahun_dibentuk}
-                onChange={(e) => setTahunDibentuk(e.target.value)}
-                required
-              />
-            </div>
-            <div className={styles.formGroup}>
-              <span>Pembina</span>
-              <input
-                type="text"
-                value={pembina}
-                onChange={(e) => setPembina(e.target.value)}
-                required
-              />
-            </div>
-            <button type="submit">
-                    Kirim
-                </button>
-                <p>{msg}</p>
-                </form>
-            </div>
-        )}
+            <span>Nama Organisasi</span>
+            <input
+              type="text"
+              value={nama_organisasi}
+              onChange={(e) => setNamaOrganisasi(e.target.value)}
+              required
+            />
+          </div>
+          <div className={styles.formGroup}>
+            <span>Ketua Organisasi</span>
+            <input
+              type="text"
+              value={ketua_organisasi}
+              onChange={(e) => setKetuaOrganisasi(e.target.value)}
+              required
+            />
+          </div>
+          <div className={styles.formGroup}>
+            <span>Nomor Kontak</span>
+            <input
+              type="text"
+              value={no_kontak}
+              onChange={(e) => setNoKontak(e.target.value)}
+              required
+            />
+          </div>
+          <div className={styles.formGroup}>
+            <span>Tahun Dibentuk</span>
+            <input
+              type="number"
+              value={tahun_dibentuk}
+              onChange={(e) => setTahunDibentuk(e.target.value)}
+              required
+            />
+          </div>
+          <div className={styles.formGroup}>
+            <span>Pembina</span>
+            <input
+              type="text"
+              value={pembina}
+              onChange={(e) => setPembina(e.target.value)}
+              required
+            />
+          </div>
+          <button type="submit">
+              Kirim
+          </button>
+          <p>{msg}</p>
+          </form>
+        </div>
+      )}
 
       <div className={styles.tableWrapper}>
         <table>
@@ -160,24 +159,24 @@ export default function organisasi() {
           </thead>
           <tbody>
             {organisasis.map((item, index) => (
-                <tr key={item.id}>
-                  <td>{index + 1}</td>
-                  <td>{item.nama_organisasi}</td>
-                  <td>{item.ketua_organisasi}</td>
-                  <td>{item.no_kontak}</td>
-                  <td>{item.tahun_dibentuk}</td>
-                  <td>{item.pembina}</td>
-                  <td>
-                    <button style={{ marginRight: '5px' }} onClick={() => handleEdit(item)}>Edit</button>
-                    <button onClick={() => handleDelete(item.id)}>Hapus</button>
-                  </td>
-                </tr>
-              ))}
-              {organisasis.length === 0 && (
-                    <tr>
-                    <td colSpan="9">Data Tidak Tersedia</td>
-                    </tr>
-                )}
+              <tr key={item.id}>
+                <td>{index + 1}</td>
+                <td>{item.nama_organisasi}</td>
+                <td>{item.ketua_organisasi}</td>
+                <td>{item.no_kontak}</td>
+                <td>{item.tahun_dibentuk}</td>
+                <td>{item.pembina}</td>
+                <td>
+                  <button style={{ marginRight: '5px' }} onClick={() => handleEdit(item)}>Edit</button>
+                  <button onClick={() => handleDelete(item.id)}>Hapus</button>
+                </td>
+              </tr>
+            ))}
+            {organisasis.length === 0 && (
+              <tr>
+              <td colSpan="9">Data Tidak Tersedia</td>
+              </tr>
+            )}
           </tbody>
         </table>
       </div>
